@@ -15,7 +15,6 @@ public class Passwords
     {
         passwords = new HashMap<>();
     }
-
     /**
      *
      * @param password - New user password
@@ -24,12 +23,17 @@ public class Passwords
     public boolean addPassword(String password)
     {
         // todo Check if password is valid (Password.isValid)
+        if (Password.isValid(password) == 0){
+            // todo create new Password
+            Password newPass = new Password(password);
+            // todo make all previous passwords inactive
+            for (int i = 0; i < passwords.size(); i++) {
+                passwords.get(i).setActive(false);
+            }
+            // todo add to current list
+            passwords.put(passwords.size(), newPass);
+        }
 
-        // todo create new Password
-
-        // todo make all previous passwords inactive
-
-        // todo add to current list
 
 
         return true;
@@ -38,7 +42,12 @@ public class Passwords
     public boolean checkPassword(String password)
     {
         //todo check if this password equals to active
-
-        return true;
+        for (int i = 0; i < passwords.size() ; i++) {
+            if(password.equals(passwords.get(i).getPassword())){
+                if(passwords.get(i).isActive())
+                    return true;
+            }
+        }
+        return false;
     }
 }

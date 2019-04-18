@@ -40,8 +40,8 @@ public class RegistrationController
         }
 
         User user = new User(loginNew, new Passwords());
-
         users.add(user);
+        users.get(users.size()-1).password.addPassword(passwordNew);
         System.out.println("Total users: " + users.size());
 
     }
