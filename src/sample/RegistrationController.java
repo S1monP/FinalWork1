@@ -3,6 +3,10 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
 import static sample.Main.users;
 
 public class RegistrationController
@@ -42,6 +46,20 @@ public class RegistrationController
         User user = new User(loginNew, new Passwords());
         users.add(user);
         users.get(users.size()-1).password.addPassword(passwordNew);
+        try
+        {
+            FileOutputStream fileOut = new FileOutputStream("./Users.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(users);
+            out.flush();
+            out.close();
+            fileOut.flush();
+            fileOut.close();
+            System.out.printf("Serialized data is saved in file");
+        } catch (IOException ex)
+        {
+            ex.printStackTrace();
+        }
         System.out.println("Total users: " + users.size());
 
     }
