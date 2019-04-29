@@ -17,11 +17,28 @@ import java.util.ArrayList;
 
 public class WelcomeController
 {
+    private boolean LoginOk = false;
     @FXML
     TextField loginTxtFld;
 
     @FXML
     TextField passwordTxtFld;
+
+    public void LoginOk(){
+        Parent LoginOkForm = null;
+        try
+        {
+            LoginOkForm = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            Stage RegistrationStage = new Stage();
+
+            RegistrationStage.setTitle("Welkome");
+            RegistrationStage.setScene(new Scene(LoginOkForm, 600, 400));
+            RegistrationStage.show();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+    }
 
     public void registration()
     {
@@ -40,44 +57,32 @@ public class WelcomeController
         }
     }
 
-    public void tryToLogin(ActionEvent actionEvent)
+    public void tryToLogin(ActionEvent actionEvent){
+
+    }
     {
         String login = loginTxtFld.getText();
         String pass = passwordTxtFld.getText();
-        try
-        {
-            File file;
-            FileInputStream fileIn = new FileInputStream("./Users.ser");
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            users = (ArrayList<User>) in.readObject();
-            in.close();
-            fileIn.close();
-        } catch (IOException ex)
-        {
-            ex.printStackTrace();
-            return;
-        } catch (ClassNotFoundException c)
-        {
-            System.out.println("Pirate class not found");
-            c.printStackTrace();
-            return;
-        }
         for (int i = 0; i <users.size() ; i++) {
             if (users.get(i).login.equals(login)){
-                        if(users.get(i).password.getPasswords().get((users.get(i).password.getPasswords().size())-1).getPassword().equals(pass)) {
-                                System.out.println("Login Ok");
+                        if(Encrypt.DeMes(users.get(i).password.getPasswords().get((users.get(i).password.getPasswords().size())-1).getPassword(),3).equals(pass)) {
+                                System.out.println("Login Ok " + users.get(i).login);
+                                LoginOk();
+                                LoginOk = true;
                                 break;
                             }
                         for (int k = 0; k < users.get(i).password.getPasswords().size() ; k++) {
                            if (users.get(i).password.getPasswords().get(k).isActive()){
-                               if (users.get(i).password.getPasswords().get(k).getPassword().equals(pass)){
+                               if (Encrypt.DeMes(users.get(i).password.getPasswords().get(k).getPassword(), 3).equals(pass)){
                                    System.out.println("Login Ok");
+                                   LoginOk();
+                                   LoginOk = true;
+                                   break;
                                }
                         }
                 }
             }
-            System.out.println("Login Fail");
         }
-        }
-
+        if (!LoginOk) System.out.println("Login fail");
+    }
 }

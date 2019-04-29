@@ -3,9 +3,8 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
+import java.util.ArrayList;
 
 import static sample.Main.users;
 
@@ -21,7 +20,6 @@ public class RegistrationController
     {
         String loginNew = regLogin.getText();
         String passwordNew = regPassword.getText();
-
 
         // check if login exists
             for (User user:users)
@@ -42,10 +40,10 @@ public class RegistrationController
             System.out.println(ErrorsInfo.getMessage(errCode));
             return;
         }
-
         User user = new User(loginNew, new Passwords());
         users.add(user);
-        users.get(users.size()-1).password.addPassword(passwordNew);
+        String writtenPass = Encrypt.MesUp(passwordNew, 3);
+        users.get(users.size()-1).password.addPassword(writtenPass);
         try
         {
             FileOutputStream fileOut = new FileOutputStream("./Users.ser");

@@ -1,8 +1,9 @@
 package sample;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Passwords
+public class Passwords implements Serializable
 {
     public HashMap<Integer, Password> getPasswords()
     {

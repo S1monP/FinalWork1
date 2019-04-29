@@ -1,8 +1,9 @@
 package sample;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Password
+public class Password implements Serializable
 {
     public Date getRegistrationDate()
     {
