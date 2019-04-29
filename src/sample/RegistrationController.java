@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 import java.io.*;
-import java.util.ArrayList;
 
 import static sample.Main.users;
 

@@ -2,9 +2,11 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.*?>
-<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:id="welcomeGrid" alignment="center" hgap="10" vgap="10"
-          xmlns="http://javafx.com/javafx/8.0.172-ea" fx:controller="sample.WelcomeController">
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane fx:id="welcomeGrid" alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.WelcomeController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -12,15 +14,14 @@
       <RowConstraints />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
    </rowConstraints>
    <children>
-      <TextField fx:id="loginTxtFld" GridPane.rowIndex="0"/>
+      <TextField fx:id="loginTxtFld" GridPane.rowIndex="0" />
       <TextField fx:id="passwordTxtFld" GridPane.rowIndex="1" />
-      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
-         <children>
-            <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#tryToLogin" text="Login" />
-            <Button fx:id="registerBtn" mnemonicParsing="false" onAction="#registration" text="Register" />
-         </children>
-      </HBox>
+      <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#tryToLogin" prefHeight="27.0" prefWidth="166.0" text="Войти в систему" GridPane.rowIndex="2" />
+      <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="165.0" text="Стать клиентом" GridPane.rowIndex="3" />
+      <Button fx:id="registreClercBtn" mnemonicParsing="false" onAction="#registration" prefHeight="27.0" prefWidth="165.0" text="Найти работу" GridPane.rowIndex="4" />
    </children>
 </GridPane>

@@ -2,20 +2,29 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
 <GridPane fx:id="regGrid" alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RegistrationController">
     <columnConstraints>
         <ColumnConstraints />
     </columnConstraints>
     <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
         <RowConstraints />
         <RowConstraints minHeight="10.0" prefHeight="30.0" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
     </rowConstraints>
     <children>
-        <TextField fx:id="regLogin" GridPane.rowIndex="0"/>
-        <TextField fx:id="regPassword" GridPane.rowIndex="1"/>
-          <Button fx:id="registerBtn" mnemonicParsing="false" onAction="#registration" text="Register" GridPane.rowIndex="3" />
+        <TextField fx:id="regLogin" promptText="придумайте логин" GridPane.rowIndex="3" />
+        <TextField fx:id="regPassword" promptText="придумайте пароль" GridPane.rowIndex="4" />
+          <Button fx:id="registerBtn" mnemonicParsing="false" onAction="#registration" prefHeight="27.0" prefWidth="165.0" text="Зарегестрироваться" GridPane.rowIndex="6" />
+      <TextField promptText="пин менеджера" />
+      <TextField promptText="введите полное имя" GridPane.rowIndex="1" />
+      <TextField promptText="введите адрес" GridPane.rowIndex="2" />
     </children>
 </GridPane>

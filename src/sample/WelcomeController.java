@@ -9,11 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import static sample.Main.users;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.util.ArrayList;
 
 public class WelcomeController
 {
@@ -24,14 +20,13 @@ public class WelcomeController
     @FXML
     TextField passwordTxtFld;
 
-    public void LoginOk(){
+   public void LoginOk(){
         Parent LoginOkForm = null;
         try
         {
             LoginOkForm = FXMLLoader.load(getClass().getResource("Login.fxml"));
             Stage RegistrationStage = new Stage();
-
-            RegistrationStage.setTitle("Welkome");
+            RegistrationStage.setTitle("Welcome");
             RegistrationStage.setScene(new Scene(LoginOkForm, 600, 400));
             RegistrationStage.show();
         } catch (IOException e)
@@ -57,9 +52,7 @@ public class WelcomeController
         }
     }
 
-    public void tryToLogin(ActionEvent actionEvent){
-
-    }
+    public void tryToLogin(ActionEvent actionEvent)
     {
         String login = loginTxtFld.getText();
         String pass = passwordTxtFld.getText();
