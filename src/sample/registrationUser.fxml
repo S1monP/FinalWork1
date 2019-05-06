@@ -27,6 +27,6 @@
       <TextField promptText="введите адрес" GridPane.rowIndex="2" />
       <TextField promptText="введите полное имя" GridPane.rowIndex="1" />
       <TextField />
-      <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="172.0" text="Зарегестрироваться" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
+      <Button mnemonicParsing="false" onAction="#registration" prefHeight="27.0" prefWidth="172.0" text="Зарегестрироваться" GridPane.halignment="CENTER" GridPane.rowIndex="7" GridPane.valignment="CENTER" />
    </children>
 </GridPane>

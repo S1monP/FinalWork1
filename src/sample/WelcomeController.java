@@ -33,7 +33,7 @@ public class WelcomeController
 
     private void LoginOk(String type){
         String fileName = (type.equals("Clerk") ? "LoginClerk" : "LoginUser");
-        Parent LoginOkForm;
+        Parent LoginOkForm = null;
         try
         {
             LoginOkForm = FXMLLoader.load(getClass().getResource((fileName + ".fxml")));
