@@ -5,12 +5,14 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <GridPane fx:id="welcomeGrid" alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.WelcomeController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
@@ -18,10 +20,15 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" />
    </rowConstraints>
    <children>
-      <TextField fx:id="loginTxtFld" GridPane.rowIndex="0" />
-      <TextField fx:id="passwordTxtFld" GridPane.rowIndex="1" />
-      <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#tryToLogin" prefHeight="27.0" prefWidth="166.0" text="Войти в систему" GridPane.rowIndex="2" />
-      <Button mnemonicParsing="false" prefHeight="27.0" prefWidth="165.0" text="Стать клиентом" GridPane.rowIndex="3" />
-      <Button fx:id="registreClercBtn" mnemonicParsing="false" onAction="#registration" prefHeight="27.0" prefWidth="165.0" text="Найти работу" GridPane.rowIndex="4" />
+      <TextField fx:id="loginTxtFld" GridPane.rowIndex="1" />
+      <TextField fx:id="passwordTxtFld" GridPane.rowIndex="2" />
+      <Button fx:id="loginBtn" mnemonicParsing="false" onAction="#tryToLogin" prefHeight="27.0" prefWidth="166.0" text="Войти в систему" GridPane.rowIndex="3" />
+      <Button fx:id="registreUserBtn" mnemonicParsing="false" onAction="#registration" prefHeight="27.0" prefWidth="165.0" text="Стать клиентом" GridPane.rowIndex="4" />
+      <Button fx:id="registreClercBtn" mnemonicParsing="false" onAction="#registration" prefHeight="27.0" prefWidth="165.0" text="Найти работу" GridPane.rowIndex="5" />
+      <TextField fx:id="ErrorTxtFld" editable="false" opacity="0.5">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </TextField>
    </children>
 </GridPane>

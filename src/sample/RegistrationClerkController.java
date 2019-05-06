@@ -7,7 +7,7 @@ import java.io.*;
 
 import static sample.Main.users;
 
-public class RegistrationController
+public class RegistrationClerkController
 {
     @FXML
     TextField regLogin;
@@ -39,7 +39,7 @@ public class RegistrationController
             System.out.println(ErrorsInfo.getMessage(errCode));
             return;
         }
-        User user = new User(loginNew, new Passwords());
+        User user = new User(loginNew, new Passwords(),"Clerk");
         users.add(user);
         String writtenPass = Encrypt.MesUp(passwordNew, 3);
         users.get(users.size()-1).password.addPassword(writtenPass);
@@ -52,7 +52,7 @@ public class RegistrationController
             out.close();
             fileOut.flush();
             fileOut.close();
-            System.out.printf("Serialized data is saved in file");
+            System.out.println("Serialized data is saved in file");
         } catch (IOException ex)
         {
             ex.printStackTrace();
